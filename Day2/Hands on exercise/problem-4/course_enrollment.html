@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Enrollment Form</title>
+</head>
+<body>
+<header>
+    <h1>Online Learning Platform</h1>
+    <h2>Course Enrollment Form</h2>
+</header>
+<nav>
+    <a href="#">Home</a> &nbsp;
+    <a href="#">Courses</a> &nbsp;
+    <a href="#">Enroll</a>&nbsp;
+</nav>
+<hr>
+<main>
+<section>
+    <h3>Enrollment Completion Status</h3>
+    <progress value="60" max="100"></progress>
+    <p>60% Form Completion</p>
+</section>
+<hr>
+<section>
+    <h3>Student Details</h3>
+    <form action="#" method="post">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <label for="course">Select Course:</label>
+        <input list="courses" id="course" name="course" required>
+        <datalist id="courses">
+            <option value="HTML Fundamentals">
+            <option value="CSS Basics">
+            <option value="JavaScript Essentials">
+            <option value="Python Programming">
+            <option value="Full Stack Development">
+        </datalist>
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="16" max="60" required>
+        <br><br>
+        <label for="skill">Rate Your Skill Level (1 - 10):</label>
+        <input type="range" id="skill" name="skill" min="1" max="10">
+        <br><br>
+        <label>Skill Level Indicator:</label>
+        <meter min="0" max="10" value="5">5 out of 10</meter>
+        <br><br>
+        <input type="submit" value="Enroll Now">
+    </form>
+</section>
+</main>
+<hr>
+<footer>
+    <p>&copy; 2026 Online Learning Platform</p>
+</footer>
+</body>
+</html>
