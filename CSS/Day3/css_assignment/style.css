@@ -1,0 +1,68 @@
+/* Soft blue & white theme */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f8ff;
+    color: #333;
+}
+h1, h2, h3 {
+    color: #cc7a00;
+}
+header {
+    background-color: #c1ce12;
+    padding: 20px;
+    text-align: center;
+}
+nav a {
+    margin: 10px;
+    color: #003366;
+    font-weight: bold;
+}
+.banner {
+    text-align: center;
+    padding: 50px;
+    background-color: #e6f2ff;
+}
+button {
+    background-color: #3399ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0066cc;
+}
+.services {
+    text-align: center;
+    padding: 40px;
+}
+.services p {
+    font-size: 14px;
+    color: #444;
+}
+.service-card {
+    display: inline-block;
+    width: 250px;
+    background-color: white;
+    padding: 20px;             
+    margin: 15px;              
+    border: 2px solid #3399ff;  
+    border-radius: 10px;
+    box-sizing: border-box;    
+}
+#contact {
+    background-color: #daffcc;
+    padding: 40px;
+    text-align: center;
+}
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ff3333;
+}
+footer {
+    background-color:#c1ce12;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
