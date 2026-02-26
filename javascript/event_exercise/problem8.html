@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Search Filter</title>
+    <style>
+        .highlight { background: yellow; }
+    </style>
+</head>
+<body>
+<h2>Exercise 8</h2>
+<input type="text" id="search" placeholder="Search name...">
+<ul id="list"></ul>
+<p id="noResult"></p>
+<script>
+let names = [
+    "Amit","Priya","Rahul","Sneha","Kiran","Anjali","Vikram","Divya",
+    "Arjun","Meena","Rohan","Neha","Suresh","Pooja","Manoj","Kavya",
+    "Ajay","Nisha","Deepak","Swathi"
+];
+let search = document.getElementById("search");
+let list = document.getElementById("list");
+let noResult = document.getElementById("noResult");
+function display(data, query="") {
+    list.innerHTML = "";
+    noResult.innerText = "";
+    if (data.length === 0) {
+        noResult.innerText = "No Results";
+        return;
+    }
+    data.forEach(function(name) {
+        let li = document.createElement("li");
+        if (query) {
+            let regex = new RegExp("(" + query + ")", "gi");
+            li.innerHTML = name.replace(regex, "<span class='highlight'>$1</span>");
+        } else {
+            li.innerText = name;
+        }
+        list.appendChild(li);
+    });
+}
+display(names);
+function filter() {
+    let value = search.value.toLowerCase();
+    let filtered = names.filter(n => n.toLowerCase().includes(value));
+    display(filtered, value);
+}
+search.addEventListener("input", filter);
+search.addEventListener("keyup", filter);
+</script>
+</body>
+</html>

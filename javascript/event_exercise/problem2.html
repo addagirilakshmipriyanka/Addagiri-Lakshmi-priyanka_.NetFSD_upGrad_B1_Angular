@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Shopping List</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+        li {
+            cursor: pointer;
+            margin: 5px 0;
+        }
+        .delete {
+            color: red;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h2>Shopping List</h2>
+<input type="text" id="itemInput">
+<button id="addBtn">Add Item</button>
+<ul id="list"></ul>
+<script>
+    let input = document.getElementById("itemInput");
+    let addBtn = document.getElementById("addBtn");
+    let list = document.getElementById("list");
+    addBtn.addEventListener("click", function() {
+        if (input.value.trim() === "") return;
+        let li = document.createElement("li");
+        li.innerHTML = input.value + 
+            '<span class="delete"> ❌</span>';
+        list.appendChild(li);
+        input.value = "";
+    });
+    list.addEventListener("click", function(event) {
+        if (event.target.classList.contains("delete")) {
+            event.target.parentElement.remove();
+        } else if (event.target.tagName === "LI") {
+            event.target.classList.toggle("completed");
+        }
+    });
+</script>
+</body>
+</html>

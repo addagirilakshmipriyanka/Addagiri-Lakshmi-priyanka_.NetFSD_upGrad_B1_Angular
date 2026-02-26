@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nested Menu</title>
+<style>
+#menu ul {
+    display: none;
+    transition: all 0.3s ease;
+}
+</style>
+</head>
+<body>
+<ul id="menu">
+    <li>
+        Electronics
+        <ul>
+            <li>Mobile</li>
+            <li>Laptop</li>
+        </ul>
+    </li>
+    <li>
+        Clothing
+        <ul>
+            <li>Men</li>
+            <li>Women</li>
+        </ul>
+    </li>
+</ul>
+<script>
+let menu = document.getElementById("menu");
+menu.addEventListener("click", function(event){
+    if(event.target.children.length > 0){   
+        let subMenu = event.target.children[0];  
+        subMenu.style.display =
+            subMenu.style.display === "block"
+            ? "none"
+            : "block";
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head><title></title>
+        </head>
+        <body>
+    <div id="container">
+ <h2>Student List</h2>
+ <ul id="students">
+ <li>John</li>
+ <li>David</li>
+ <li>Emma</li>
+ <li>Olivia</li>
+ </ul>
+</div>
+<button id="highlightFirst">Highlight First</button>
+<button id="highlightLast">Highlight Last</button>
+<button id="highlightNext">Highlight Next of David</button>
+<script>
+let students=document.getElementById("students")
+console.log(students.parentNode)
+document.getElementById("highlightFirst").addEventListener("click",function(){
+    students.firstElementChild.style.color="blue"
+});
+document.getElementById("highlightLast").addEventListener("click", function(){
+    students.lastElementChild.style.color="yellow"
+});
+document.getElementById("highlightLast").addEventListener("click", function(){
+for(let li of students.children){
+    if(li.textContent=="David"){
+        li.nextElementSibling.style.color="red";
+    }
+}
+});
+    </script>
+        </body>
+        </html>

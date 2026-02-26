@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Form Validation</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+        input { display: block; margin-bottom: 5px; padding: 5px; }
+    </style>
+</head>
+<body>
+<h2>Registration Form</h2>
+<form id="myForm">
+    Name:
+    <input type="text" id="name">
+    <span id="nameError" class="error"></span>
+
+    Email:
+    <input type="text" id="email">
+    <span id="emailError" class="error"></span>
+
+    Password:
+    <input type="password" id="password">
+    <span id="passwordError" class="error"></span>
+    <button type="submit">Submit</button>
+    <p id="finalMessage"></p>
+</form>
+<script>
+    let form = document.getElementById("myForm");
+    let nameInput = document.getElementById("name");
+    let emailInput = document.getElementById("email");
+    let passwordInput = document.getElementById("password");
+    let nameError = document.getElementById("nameError");
+    let emailError = document.getElementById("emailError");
+    let passwordError = document.getElementById("passwordError");
+    let finalMessage = document.getElementById("finalMessage");
+    function highlight(e) {
+        e.target.style.border = "2px solid blue";
+    }
+    function validateField(e) {
+        e.target.style.border = "1px solid black";
+        if (e.target.id === "name") {
+            if (nameInput.value.trim() === "") {
+                nameError.textContent = "Name is required";
+            } else {
+                nameError.textContent = "";
+            }
+        }
+        if (e.target.id === "email") {
+            if (!emailInput.value.includes("@")) {
+                emailError.textContent = "Invalid email";
+            } else {
+                emailError.textContent = "";
+            }
+        }
+        if (e.target.id === "password") {
+            if (passwordInput.value.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters";
+            } else {
+                passwordError.textContent = "";
+            }
+        }
+    }
+    nameInput.addEventListener("focus", highlight);
+    emailInput.addEventListener("focus", highlight);
+    passwordInput.addEventListener("focus", highlight);
+    nameInput.addEventListener("blur", validateField);
+    emailInput.addEventListener("blur", validateField);
+    passwordInput.addEventListener("blur", validateField);
+    form.addEventListener("submit", function(e) {
+        let valid = true;
+        if (nameInput.value.trim() === "") {
+            nameError.textContent = "Name is required";
+            valid = false;
+        }
+        if (!emailInput.value.includes("@")) {
+            emailError.textContent = "Invalid email";
+            valid = false;
+        }
+        if (passwordInput.value.length < 6) {
+            passwordError.textContent = "Password must be at least 6 characters";
+            valid = false;
+        }
+        if (!valid) {
+            e.preventDefault();
+            finalMessage.textContent = "";
+        } else {
+            e.preventDefault();
+            finalMessage.textContent = "Form submitted successfully!";
+            finalMessage.className = "success";
+        }
+    });
+</script>
+</body>
+</html>

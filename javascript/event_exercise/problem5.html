@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll Progress Indicator</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 8px;
+            width: 0%;
+            background-color: green;
+        }
+        .content {
+            height: 2000px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="progressBar"></div>
+<div class="content">
+    <h2>Scroll Down</h2>
+</div>
+<script>
+    let progressBar = document.getElementById("progressBar");
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.scrollY;
+        let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        let percent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = percent + "%";
+        if (percent >= 80) {
+            progressBar.style.backgroundColor = "red";
+        } else {
+            progressBar.style.backgroundColor = "green";
+        }
+    });
+</script>
+</body>
+</html>

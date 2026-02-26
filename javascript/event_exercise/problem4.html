@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Hover Gallery</title>
+    <style>
+        .gallery img {
+            width: 150px;
+            height: 100px;
+            margin: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        #title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Image Hover Gallery</h2>
+<div class="gallery">
+    <img src="https://via.placeholder.com/150" data-title="Image 1">
+    <img src="https://via.placeholder.com/150/ff0000" data-title="Image 2">
+    <img src="https://via.placeholder.com/150/00ff00" data-title="Image 3">
+    <img src="https://via.placeholder.com/150/0000ff" data-title="Image 4">
+</div>
+<p id="title"></p>
+<script>
+    let images = document.querySelectorAll(".gallery img");
+    let title = document.getElementById("title");
+    images.forEach(function(img) {
+        img.addEventListener("mouseover", function() {
+            title.innerText = img.getAttribute("data-title");
+        });
+        img.addEventListener("mouseout", function() {
+            title.innerText = "";
+            img.style.width = "150px";
+            img.style.height = "100px";
+        });
+        img.addEventListener("click", function() {
+            img.style.width = "300px";
+            img.style.height = "200px";
+        });
+    });
+</script>
+</body>
+</html>

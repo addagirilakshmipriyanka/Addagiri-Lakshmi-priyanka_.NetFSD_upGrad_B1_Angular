@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 11</title>
+    <style>
+        .step { display: none; }
+        .active { display: block; }
+        .progress { height: 20px; background: #ddd; margin-bottom: 10px; }
+        .bar { height: 100%; width: 0%; background: green; }
+    </style>
+</head>
+<body>
+<h2>Multi-Step Form Wizard</h2>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<form id="form">
+    <div class="step active">
+        <h3>Step 1 - Personal Info</h3>
+        <input type="text" id="name" placeholder="Name"><br><br>
+        <button type="button" id="next1">Next</button>
+    </div>
+    <div class="step">
+        <h3>Step 2 - Address</h3>
+        <input type="text" id="address" placeholder="Address"><br><br>
+        <button type="button" id="back1">Back</button>
+        <button type="button" id="next2">Next</button>
+    </div>
+    <div class="step">
+        <h3>Step 3 - Confirmation</h3>
+        <p id="confirm"></p>
+        <button type="button" id="back2">Back</button>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+<script>
+let steps = document.querySelectorAll(".step");
+let bar = document.getElementById("bar");
+let current = 0;
+function showStep(index) {
+    steps.forEach(s => s.classList.remove("active"));
+    steps[index].classList.add("active");
+    bar.style.width = ((index+1)/steps.length)*100 + "%";
+}
+document.getElementById("next1").addEventListener("click", function() {
+    if (!document.getElementById("name").value) return alert("Enter Name");
+    current = 1;
+    showStep(current);
+});
+document.getElementById("next2").addEventListener("click", function() {
+    if (!document.getElementById("address").value) return alert("Enter Address");
+    document.getElementById("confirm").innerText =
+        "Name: " + name.value + " | Address: " + address.value;
+    current = 2;
+    showStep(current);
+});
+document.getElementById("back1").addEventListener("click", function() {
+    current = 0;
+    showStep(current);
+});
+document.getElementById("back2").addEventListener("click", function() {
+    current = 1;
+    showStep(current);
+});
+document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Form Submitted Successfully!");
+});
+</script>
+</body>
+</html>

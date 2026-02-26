@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart UI</title>
+    <style>
+        body { font-family: Arial; }
+        .container { display: flex; gap: 40px; }
+        .products, .cart { border: 1px solid #ccc; padding: 15px; width: 250px; }
+        li { margin: 5px 0; cursor: pointer; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+<body>
+<h2>Shopping Cart</h2>
+<div class="container">
+    <div class="products">
+    <h3>Products</h3>
+    <ul id="productList">
+    <li>
+    <span>Mobile</span> -
+     ₹<span class="price">10000</span>
+    <button>Add</button>
+    </li>
+    <li>
+    <span>Laptop</span> -
+     ₹<span class="price">50000</span>
+    <button>Add</button>
+    </li>
+    <li>
+    <span>Headphones</span> -
+    ₹<span class="price">2000</span>
+    <button>Add</button>
+    </li>
+    </ul>
+    </div>
+    <div class="cart">
+    <h3>Cart</h3>
+    <ul id="cartList"></ul>
+    <h4>Total: ₹<span id="total">0</span></h4>
+    </div>
+</div>
+<script>
+let productList = document.getElementById("productList");
+let cartList = document.getElementById("cartList");
+let totalDisplay = document.getElementById("total");
+let total = 0;
+productList.addEventListener("click", function(event){
+    if(event.target.tagName === "BUTTON"){
+        let item = event.target.parentNode;
+        let name = item.children[0].textContent;
+        let price = parseInt(item.children[1].textContent);
+        let li = document.createElement("li");
+        li.textContent = name + " - ₹" + price;
+        li.setAttribute("data-price", price);
+        cartList.appendChild(li);
+        total += price;
+        totalDisplay.textContent = total;
+    }
+});
+cartList.addEventListener("click", function(event){
+    if(event.target.tagName === "LI"){
+        let price = parseInt(event.target.getAttribute("data-price"));
+        total -= price;
+        totalDisplay.textContent = total;
+        event.target.remove();
+    }
+});
+</script>
+</body>
+</html>

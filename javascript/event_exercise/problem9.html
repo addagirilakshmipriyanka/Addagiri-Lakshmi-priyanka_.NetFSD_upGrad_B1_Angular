@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 9 - Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 20px; }
+        #controls { margin-bottom: 10px; }
+        #cards { display: flex; flex-wrap: wrap; gap: 10px; }
+        .card {
+            padding: 15px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            width: 150px;
+            position: relative;
+        }
+        .delete {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: red;
+        }
+        #activity {
+            margin-top: 20px;
+            height: 150px;
+            overflow-y: auto;
+            border: 1px solid black;
+            padding: 5px;
+            font-size: 12px;
+            background: #fafafa;
+        }
+        #info { margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+<h2>Exercise 9 - Real-Time Dashboard</h2>
+
+<div id="controls">
+    <input type="text" id="cardInput" placeholder="Enter card name">
+    <button id="addCard">Add Card</button>
+</div>
+
+<div id="info">
+    Window Size: <span id="size"></span> |
+    Scroll: <span id="scrollPercent"></span>%
+</div>
+
+<div id="cards"></div>
+
+<h3>Activity Log</h3>
+<div id="activity"></div>
+
+<script>
+let cards = document.getElementById("cards");
+let activity = document.getElementById("activity");
+let size = document.getElementById("size");
+let scrollPercent = document.getElementById("scrollPercent");
+
+function log(msg) {
+    activity.innerHTML += msg + "<br>";
+    activity.scrollTop = activity.scrollHeight;
+}
+
+window.addEventListener("load", function() {
+    log("Page Loaded");
+    updateSize();
+});
+
+document.getElementById("addCard").addEventListener("click", function() {
+    let value = document.getElementById("cardInput").value;
+    if (!value) return;
+
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = value + "<span class='delete'>X</span>";
+    cards.appendChild(card);
+    log("Card Added: " + value);
+});
+
+cards.addEventListener("click", function(e) {
+    if (e.target.classList.contains("delete")) {
+        let card = e.target.parentElement;
+        log("Card Deleted: " + card.innerText.replace("X",""));
+        card.remove();
+    }
+});
+
+document.getElementById("cardInput").addEventListener("input", function() {
+    log("Typing: " + this.value);
+});
+
+window.addEventListener("resize", function() {
+    updateSize();
+    log("Window Resized");
+});
+
+function updateSize() {
+    size.innerText = window.innerWidth + " x " + window.innerHeight;
+}
+
+window.addEventListener("scroll", function() {
+    let scrollTop = window.scrollY;
+    let docHeight = document.body.scrollHeight - window.innerHeight;
+    let percent = Math.round((scrollTop / docHeight) * 100);
+    scrollPercent.innerText = percent || 0;
+});
+</script>
+
+</body>
+</html>

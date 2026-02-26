@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Analysis Tool</title>
+</head>
+<body>
+
+<script>
+let num = 7;   
+let result = (num >= 0) ? "Positive" : "Negative";
+let parity;
+if (num % 2 === 0) {
+    parity = "Even";
+} else {
+    parity = "Odd";
+}
+document.write("Number: " + num + "<br>");
+document.write("Positive/Negative: " + result + "<br>");
+document.write("Even/Odd: " + parity + "<br><br>");
+document.write("Numbers from 1 to " + num + ":<br>");
+for (let i = 1; i <= num; i++) {
+    document.write(i + " ");
+}
+</script>
+</body>
+</html>

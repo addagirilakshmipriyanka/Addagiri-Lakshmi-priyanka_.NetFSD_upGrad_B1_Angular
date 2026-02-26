@@ -1,0 +1,26 @@
+<html>
+<head><title></title>
+</head>
+<body>
+<script>
+let correctusername = "admin";
+let correctpassword = "1234";
+let attempts = 0;
+let maxAttempts = 3;
+while (attempts < maxAttempts) {
+    let username = prompt("Enter Username:");
+    let password = prompt("Enter Password:");
+if (username === correctusername && password === correctpassword) {
+alert("Login Successful!");
+        break;
+} else {
+    attempts++;
+    alert("Invalid credentials. Attempts left: " + (maxAttempts - attempts));
+    }
+}
+if (attempts === maxAttempts) {
+    alert("Maximum attempts reached. Access Denied.");
+}
+</script>
+</body>
+</html>

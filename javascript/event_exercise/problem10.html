@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise 10 - Custom Event</title>
+</head>
+<body>
+<h2>Exercise 10 - Custom Event System</h2>
+<button id="generate">Generate Report</button>
+<h3>Report Summary</h3>
+<div id="summary"></div>
+<script>
+let button = document.getElementById("generate");
+let summary = document.getElementById("summary");
+button.addEventListener("click", function() {
+    let reportData = {
+        totalUsers: 120,
+        activeUsers: 85,
+        revenue: "$5000"
+    };
+    let event = new CustomEvent("reportGenerated", {
+        detail: reportData
+    });
+    document.dispatchEvent(event);
+});
+document.addEventListener("reportGenerated", function(e) {
+    let data = e.detail;
+    summary.innerHTML =
+        "Total Users: " + data.totalUsers + "<br>" +
+        "Active Users: " + data.activeUsers + "<br>" +
+        "Revenue: " + data.revenue;
+});
+</script>
+</body>
+</html>

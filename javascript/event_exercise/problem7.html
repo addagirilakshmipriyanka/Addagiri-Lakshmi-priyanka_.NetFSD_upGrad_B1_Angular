@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Propagation Tester</title>
+    <style>
+        div { padding: 20px; border: 2px solid black; margin: 10px; }
+        #parent { border-color: blue; }
+        #grandparent { border-color: green; }
+    </style>
+</head>
+<body>
+<h2>Exercise 7</h2>
+<button id="modeBtn">Mode: Bubbling</button>
+<button id="stopBtn">stopPropagation: OFF</button>
+<div id="grandparent">
+    Grandparent
+    <div id="parent">
+        Parent
+        <button id="child">Child Button</button>
+    </div>
+</div>
+<p id="log"></p>
+<script>
+let mode = "bubbling";
+let stopEnabled = false;
+let log = document.getElementById("log");
+let grandparent = document.getElementById("grandparent");
+let parent = document.getElementById("parent");
+let child = document.getElementById("child");
+function addListeners() {
+    let useCapture = (mode === "capturing");
+    grandparent.addEventListener("click", handler("Grandparent"), useCapture);
+    parent.addEventListener("click", handler("Parent"), useCapture);
+    child.addEventListener("click", handler("Child"), useCapture);
+}
+function handler(name) {
+    return function(e) {
+        log.innerHTML += name + " → ";
+        if (stopEnabled) e.stopPropagation();
+    };
+}
+addListeners();
+document.getElementById("modeBtn").onclick = function() {
+    mode = mode === "bubbling" ? "capturing" : "bubbling";
+    this.innerText = "Mode: " + (mode === "bubbling" ? "Bubbling" : "Capturing");
+    log.innerHTML = "";
+};
+document.getElementById("stopBtn").onclick = function() {
+    stopEnabled = !stopEnabled;
+    this.innerText = "stopPropagation: " + (stopEnabled ? "ON" : "OFF");
+};
+</script>
+</body>
+</html>

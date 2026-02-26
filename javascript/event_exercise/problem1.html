@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Counter</title>
+</head>
+<body>
+<form id="form">
+    <textarea id="text"></textarea><br>
+    <span id="count">0</span>/100
+    <p id="msg" style="color:red;"></p>
+    <button id="btn">Submit</button>
+</form>
+<script>
+    let text = document.getElementById("text");
+    let count = document.getElementById("count");
+    let msg = document.getElementById("msg");
+    let btn = document.getElementById("btn");
+    let form = document.getElementById("form");
+    function check() {
+        let len = text.value.length;
+        count.innerText = len;
+        if (len >= 100) {
+            text.style.border = "2px solid red";
+            msg.innerText = "Limit reached!";
+            btn.disabled = true;
+        } else {
+            text.style.border = "2px solid black";
+            msg.innerText = "";
+            btn.disabled = false;
+        }
+    }
+    text.addEventListener("input", check);
+    text.addEventListener("keyup", check);
+    form.addEventListener("submit", function(e) {
+        if (text.value.length > 100) {
+            e.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>
