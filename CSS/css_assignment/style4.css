@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color:#ffcccc;
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+}
+header, footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+.container {
+    display: flex;
+}
+.sidebar {
+    width: 220px;
+    background-color: #003366;
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+.sidebar ul li:hover {
+background-color:#ffcccc;}
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.card {
+    flex: 1;
+    background-color: white;
+    padding: 20px;              /* Padding */
+    border: 2px solid #ccc;     /* Border */
+    border-radius: 10px;        /* Border Radius */
+    margin: 10px;               /* Margin */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.login-section input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 200px;
+}
+input[type="password"] {
+    border: 2px solid red;
+}
+button {
+    padding: 8px 15px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:active {
+    background-color: #0055;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+tr:hover {
+    background-color: #e6f2ff;
+}
+.debit {
+    color: red;
+    font-weight: bold;
+}
+.credit {
+    color: green;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 20px;
+}
