@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Student Registration</title>
+    </head>
+    <body>
+     <h2 style="text-align:center">Student Registration Table</h2>
+     <form>
+     <table border="1" cellpadding=""5 align="center">
+     <tr>
+      <td><label>Full name</label></td>
+      <td><input type="text" name="name" placeholder="Enter full name" required></td>
+      </tr>
+     </tr>
+        <tr>
+            <td><label>Email</label></td>
+            <td><input type="email" name="email" placeholder="enter email" required></td>
+            </tr>
+    <tr>
+        <td><label>Phone number</label></td>
+        <td><input type="tel" id="Phone" name="Phone" placeholder="enter 10 digit number" pattern="[0-9]{10}" required></td>
+        </tr>
+    <tr>
+<td><label>Age</label></td>
+<td><input type="number" id="age" name="age" placeholder="Enter age" min="18" max="60" required></td>
+</tr>
+    <tr>
+        <td><label>Date of birth</label></td>
+        <td><input type="date" id="dob" name="dob" required></td>
+    </tr>
+     </table><br><br>
+<div style="text-align: center;">
+    <input type="submit" value="Submit">
+</div>
+
+     </form>
+    </body>
+</html>
