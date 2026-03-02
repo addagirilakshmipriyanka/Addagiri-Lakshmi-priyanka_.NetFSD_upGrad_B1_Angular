@@ -1,0 +1,38 @@
+<html>
+    <head><title></title>
+    </head>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+  $(function(){
+    $("#bid").click(function(){
+        alert("Button clcicked")
+    });
+    $("#im1").hover(function(){
+        $(this).attr("src","1.jpeg")
+    });
+  $("p").dblclick(function(){
+     $(this).hide()
+  });
+  $("#name").blur(function(){
+    $("#message").text("Input field lost the focus");
+  });
+  $("#Myform").submit(function(e){
+    e.preventDefault();
+    alert("Form submitted succesfully")
+  });
+  });
+    </script>
+    <body>
+<button id="bid">clcick me</button>
+<br>
+<img src="1.jpeg" id="im1" alt="img1"><br>
+<p> This is paragraph</p><br>
+<input type="text" id="name" placeholder="Enter your name">
+<p id="message"></p>
+<br>
+<form id="Myform">
+  <input type="text" placeholder="Username">
+  <button type="submit">SUBMIT</button>
+</form>
+    </body>
+    </html>

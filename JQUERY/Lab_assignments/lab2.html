@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Todo List</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $("#addBtn").click(function(){
+                let task = $("#taskInput").val();
+                if(task !== ""){
+                    $("ul").append(
+                        "<li>" + task +
+                        " <button class='delete'>Delete</button></li>"
+                    );
+                    $("#taskInput").val("");
+                }
+            });
+            $("ul").on("click", ".delete", function(){
+                $(this).parent().remove();
+            });
+            $("#clearBtn").click(function(){
+                $("ul").empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Todo List</h2>
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button id="addBtn">Add Task</button>
+    <button id="clearBtn">Clear All</button>
+    <ul></ul>
+</body>
+</html>

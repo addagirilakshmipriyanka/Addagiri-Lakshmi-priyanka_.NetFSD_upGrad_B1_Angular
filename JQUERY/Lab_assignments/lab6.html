@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 6 - CRUD with JSON Server</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body{font-family:Arial;margin:20px;}
+        table{border-collapse:collapse;width:100%;margin-top:15px;}
+        th,td{border:1px solid #000;padding:8px;text-align:left;}
+        input{padding:6px;margin:5px;}
+        button{padding:6px 10px;margin:3px;}
+        #error{color:red;}
+        #toast{
+            display:none;
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            background:green;
+            color:#fff;
+            padding:10px 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Books CRUD</h2>
+
+<form id="bookForm">
+    <input type="text" id="title" placeholder="Book Title">
+    <input type="text" id="author" placeholder="Author Name">
+    <button type="submit">Save</button>
+</form>
+
+<p id="error"></p>
+
+<table id="bookTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<div id="toast"></div>
+
+<script>
+$(document).ready(function(){
+
+    const API = "http://localhost:3000/books";
+    let editId = null;
+
+    function showToast(msg){
+        $("#toast").text(msg).fadeIn().delay(1500).fadeOut();
+    }
+
+    function loadBooks(){
+        $.ajax({
+            url: API,
+            method: "GET",
+            success: function(data){
+                let rows="";
+                $.each(data,function(i,book){
+                    rows+=`<tr>
+                            <td>${book.id}</td>
+                            <td>${book.title}</td>
+                            <td>${book.author}</td>
+                            <td>
+                                <button class="edit" data-id="${book.id}">Edit</button>
+                                <button class="delete" data-id="${book.id}">Delete</button>
+                            </td>
+                          </tr>`;
+                });
+                $("#bookTable tbody").html(rows);
+            }
+        });
+    }
+
+    $("#bookForm").submit(function(e){
+        e.preventDefault();
+
+        let title=$("#title").val().trim();
+        let author=$("#author").val().trim();
+
+        if(title==="" || author===""){
+            $("#error").text("All fields are required");
+            return;
+        }
+        $("#error").text("");
+
+        let bookData={title:title,author:author};
+
+        if(editId!==null){
+            $.ajax({
+                url: API + "/" + Number(editId), // handle numeric ID
+                method: "PUT",
+                contentType:"application/json",
+                data: JSON.stringify(bookData),
+                success:function(){
+                    showToast("Book Updated");
+                    editId=null;
+                    $("#bookForm")[0].reset();
+                    loadBooks();
+                }
+            });
+        }else{
+            $.ajax({
+                url: API,
+                method: "POST",
+                contentType:"application/json",
+                data: JSON.stringify(bookData),
+                success:function(){
+                    showToast("Book Added");
+                    $("#bookForm")[0].reset();
+                    loadBooks();
+                }
+            });
+        }
+    });
+
+    $("#bookTable").on("click",".edit",function(){
+        let id=$(this).data("id");
+
+        $.ajax({
+            url: API + "/" + Number(id),
+            method:"GET",
+            success:function(book){
+                $("#title").val(book.title);
+                $("#author").val(book.author);
+                editId=id;
+            }
+        });
+    });
+
+    $("#bookTable").on("click",".delete",function(){
+        let id=$(this).data("id");
+
+        if(confirm("Are you sure you want to delete?")){
+            $.ajax({
+                url: API + "/" + Number(id),
+                method:"DELETE",
+                success:function(){
+                    showToast("Book Deleted");
+                    loadBooks();
+                }
+            });
+        }
+    });
+
+    loadBooks();
+
+});
+</script>
+
+</body>
+</html>
