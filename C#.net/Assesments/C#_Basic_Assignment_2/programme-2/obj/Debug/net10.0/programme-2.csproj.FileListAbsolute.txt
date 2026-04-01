@@ -1,0 +1,14 @@
+D:\d.net training\Entity Framework\HandsOn\programme-2\bin\Debug\net10.0\programme-2.exe
+D:\d.net training\Entity Framework\HandsOn\programme-2\bin\Debug\net10.0\programme-2.deps.json
+D:\d.net training\Entity Framework\HandsOn\programme-2\bin\Debug\net10.0\programme-2.runtimeconfig.json
+D:\d.net training\Entity Framework\HandsOn\programme-2\bin\Debug\net10.0\programme-2.dll
+D:\d.net training\Entity Framework\HandsOn\programme-2\bin\Debug\net10.0\programme-2.pdb
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.GeneratedMSBuildEditorConfig.editorconfig
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.AssemblyInfoInputs.cache
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.AssemblyInfo.cs
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.csproj.CoreCompileInputs.cache
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.dll
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\refint\programme-2.dll
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.pdb
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\programme-2.genruntimeconfig.cache
+D:\d.net training\Entity Framework\HandsOn\programme-2\obj\Debug\net10.0\ref\programme-2.dll
