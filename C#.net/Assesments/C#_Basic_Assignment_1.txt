@@ -1,0 +1,88 @@
+Algorithm Exercises
+Exercise 1:-
+Write an algorithm for accepting two numbers, divide the first number by second and display their quotient.
+
+Step 1: Start
+Step 2: Read two numbers A and B
+Step 3: Calculate Quotient = A / B
+Step 4: Display Quotient
+Step 5: Stop
+
+Exercise 2:-
+Write an algorithm for accepting distance in kilometers, convert it into meters and display the result.
+
+Step 1: Start
+Step 2: Read distance in KM
+Step 3: Convert → Meters = KM * 1000
+Step 4: Display Meters
+Step 5: Stop
+
+Exercise 3:-
+Write an algorithm for accepting five numbers and display the sum and average of the numbers.
+
+Step 1: Start
+Step 2: Read 5 numbers (A, B, C, D, E)
+Step 3: Sum = A + B + C + D + E
+Step 4: Average = Sum / 5
+Step 5: Display Sum and Average
+Step 6: Stop
+
+Exercise 4:-
+Write an algorithm for accepting a number and display the whether it is odd or even.
+
+Step 1: Start
+Step 2: Read number N
+Step 3: If N % 2 == 0
+            Display "Even"
+        Else
+            Display "Odd"
+Step 4: Stop
+
+Exercise 5:-
+Write an algorithm for accepting two numbers and display the highest number among two.
+
+Step 1: Start
+Step 2: Read two numbers A and B
+Step 3: If A > B
+            Display A is highest
+        Else
+            Display B is highest
+Step 4: Stop
+
+Exercise 6:-
+Write an algorithm for calculating the area of rectangle and square separately.
+
+Step 1: Start
+
+-- Rectangle
+Step 2: Read length and breadth
+Step 3: Area_Rectangle = length * breadth
+Step 4: Display Area_Rectangle
+
+-- Square
+Step 5: Read side
+Step 6: Area_Square = side * side
+Step 7: Display Area_Square
+
+Step 8: Stop
+
+Exercise 7:-
+Write an algorithm for accepting the distance and speed values for a particular journey, calculate the time taken for the journey and display the same.
+
+Step 1: Start
+Step 2: Read Distance and Speed
+Step 3: Time = Distance / Speed
+Step 4: Display Time
+Step 5: Stop
+
+Exercise 8:-
+Write an algorithm for accepting third character of the given string and then display whether it is vowel or constant
+
+Step 1: Start
+Step 2: Read a string
+Step 3: Get third character (index 2)
+Step 4: If character is in (A, E, I, O, U, a, e, i, o, u)
+            Display "Vowel"
+        Else
+            Display "Consonant"
+Step 5: Stop
