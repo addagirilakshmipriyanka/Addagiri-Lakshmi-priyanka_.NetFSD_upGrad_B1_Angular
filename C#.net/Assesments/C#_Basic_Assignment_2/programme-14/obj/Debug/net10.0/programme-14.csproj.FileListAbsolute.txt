@@ -1,0 +1,14 @@
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\bin\Debug\net10.0\programme-14.exe
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\bin\Debug\net10.0\programme-14.deps.json
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\bin\Debug\net10.0\programme-14.runtimeconfig.json
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\bin\Debug\net10.0\programme-14.dll
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\bin\Debug\net10.0\programme-14.pdb
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.GeneratedMSBuildEditorConfig.editorconfig
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.AssemblyInfoInputs.cache
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.AssemblyInfo.cs
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.csproj.CoreCompileInputs.cache
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.dll
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\refint\programme-14.dll
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.pdb
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\programme-14.genruntimeconfig.cache
+D:\d.net training\C# .net\Assesments\C#_Basic_Assignment_2\programme-14\obj\Debug\net10.0\ref\programme-14.dll
