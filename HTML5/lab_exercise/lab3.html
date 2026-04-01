@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>User Registration Form</title>
+    </head>
+    <body>
+        <form novalidate autocomplete="off">
+       <table border="1">
+          <tr>
+            <td> Full Name </td>
+            <td><input type="text" name="fullname" placeholder="enter fullname" required autofocus></td>
+            </tr>
+         <tr>
+            <td> Email </td>
+            <td><input type="email" name="email" placeholder="enter email"  autocomplete="on" required></td>
+            </tr>
+             
+            <tr>
+        <td>Email</td>
+        <td>
+            <input type="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   autocomplete="on"
+                   required>
+        </td>
+    </tr>
+            <td> Age </td>
+            <td><input type="number" name="age" min="18" max="60" step="2"></td>
+            </tr>
+            <tr>
+        <td>Skill Level (1–10)</td>
+        <td><input type="range"name="skill"min="1"max="10"step="1"></td>
+          </tr>
+             <tr>
+            <td>Phone number  </td>
+            <td><input type="tel" name="phone number" placeholder="enetr 10 digit number" pattern="[0-9]{10}" required></td>
+            </tr>
+             <tr>
+            <td>Username readonly  </td>
+            <td><input type="text" name="username" value="priyanka" readonly></td>
+            </tr>
+            <tr>
+      <td>username disabled</td>
+      <td><input type="text" name="username" value="priya" disabled></td>
+            </tr>
+        <tr>
+        <td>Upload Certificates</td>
+        <td><input type="file" name="documents"multiple></td>
+        </tr>
+        </table>
+        <br>
+    </br>
+        <input type="submit" value="submit">
+        <input type="reset" value="clear">
+        </form>
+    </body>
+</html>
